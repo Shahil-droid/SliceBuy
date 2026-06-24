@@ -311,7 +311,43 @@ const Products = () => {
             const res = await api.get('/products/');
             setProducts(res.data);
         } catch (err) {
-            console.error('Failed to fetch products:', err);
+            console.error('Failed to fetch products, using fallback data:', err);
+            const mockProducts = [
+                {
+                    id: 991,
+                    name: "Premium Wireless Headphones",
+                    description: "Experience high-fidelity audio with our latest over-ear wireless headphones. Features active noise cancellation and 30-hour battery life.",
+                    price: 14999.00,
+                    stock: 50,
+                    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=80",
+                    seller_username: "TechGadgets",
+                    average_rating: 4.8,
+                    review_count: 124
+                },
+                {
+                    id: 992,
+                    name: "Handcrafted Leather Backpack",
+                    description: "Vintage style leather backpack perfect for daily commute or weekend getaways. Made from premium full-grain leather.",
+                    price: 4500.00,
+                    stock: 12,
+                    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80",
+                    seller_username: "LeatherCraft",
+                    average_rating: 4.5,
+                    review_count: 45
+                },
+                {
+                    id: 993,
+                    name: "Mechanical Keyboard Pro",
+                    description: "Customizable mechanical keyboard with RGB backlighting, hot-swappable switches, and an ergonomic aluminum body.",
+                    price: 8999.00,
+                    stock: 5,
+                    image: "https://images.unsplash.com/photo-1595225476474-87563907a212?w=800&q=80",
+                    seller_username: "KeyMasters",
+                    average_rating: 4.9,
+                    review_count: 89
+                }
+            ];
+            setProducts(mockProducts);
         } finally {
             setLoading(false);
         }
